@@ -56,8 +56,8 @@ def test_portenta2shm2portenta():
         "portentaoutput_shm_struc_fname": portentaoutput_shm_struc_fname,
         "portentainput_shm_struc_fname": portentainput_shm_struc_fname,
         # uncomment when using real file without _sim.py
-        "port_name": ARDUINO_PORT,
-        "baud_rate": ARDUINO_BAUD_RATE,
+        # "port_name": ARDUINO_PORT,
+        # "baud_rate": ARDUINO_BAUD_RATE,
         }
     
     stream_portenta_kwargs = portenta2shm_kwargs.copy()
@@ -66,8 +66,8 @@ def test_portenta2shm2portenta():
     stream_portenta_kwargs.pop("baud_rate", None)
 
     L.spacer()
-    Thread(target=run_portenta2shm2portenta, kwargs=portenta2shm_kwargs).start()
-    # Thread(target=run_portenta2shm2portenta_sim, kwargs=portenta2shm_kwargs).start()
+    # Thread(target=run_portenta2shm2portenta, kwargs=portenta2shm_kwargs).start()
+    Thread(target=run_portenta2shm2portenta_sim, kwargs=portenta2shm_kwargs).start()
     #matplotlib GUI only runs on main Thread
     # Thread(target=run_stream_packages, kwargs=stream_portenta_kwargs).start()
     run_stream_packages(**stream_portenta_kwargs)
